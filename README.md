@@ -1,4 +1,4 @@
-tequilaproject
+4tql
 ==============
 
 -Our project consist of a website that allows registered users to post photos.	
