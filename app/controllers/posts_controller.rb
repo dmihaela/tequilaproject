@@ -1,14 +1,18 @@
 class PostsController < ApplicationController
 	# metoda pentru a adauga un nou post
 	def new 
+		@post = Post.new
 	end
 
 	# metoda pentru a crea un nou post(atunci cand apas submit la formular)
 	def create
 		# render text: params[:post].inspect
-		@post = Post.new(post_params)
-		@post.save
-		redirect_to @post
+		@post = Post.new(params[:post].permit(:title, :url, :description))
+		if @post.save
+			redirect_to @post
+		else
+			render 'new'
+		end
 	end
 
 	def show
