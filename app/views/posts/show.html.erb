@@ -4,10 +4,11 @@
 </p>
  
 <p>
-  <strong>Text:</strong>
-  <%= @post.url %>
+  <strong>Url:</strong>
+  <img src = <%= post.url %> width = '100' height = auto/>
 </p>
 <p>
   <strong>Description:</strong>
   <%= @post.description %>
 </p>
+<%= link_to 'Back', posts_path %>
