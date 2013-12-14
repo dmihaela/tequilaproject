@@ -1,15 +1,26 @@
 class PostsController < ApplicationController
 	#adaugare post
 	def new
+		 @post = Post.new
+	end
+
+	def create
+ 	 @post = Post.new(params[:post].permit(:title, :url, :description))
+ 
+  		if @post.save
+    		redirect_to @post
+  		else
+    		render 'new'
+ 	 	end
 	end
 
 	#adaugare metoda post nou
-	def create
-		  @post = Post.new(post_params)
+	#def create
+	#	  @post = Post.new(post_params)
  			
-          @post.save
-          redirect_to @post
-  	end
+    #      @post.save
+     #     redirect_to @post
+  #	end
 
   	def show
   		@post = Post.find(params[:id])
